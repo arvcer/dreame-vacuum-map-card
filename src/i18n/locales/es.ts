@@ -250,6 +250,8 @@ export const es: Translation = {
       resume_cleaning_desc: 'Reanudar automáticamente la limpieza después de cargar',
       dnd: 'No molestar',
       dnd_desc: 'Horas de silencio con actividad reducida',
+      dnd_start: 'Hora de inicio',
+      dnd_end: 'Hora de fin',
       dnd_disable_resume: 'Desactivar reanudación',
       dnd_disable_resume_desc: 'No reanudar limpieza durante No molestar',
       dnd_disable_auto_empty: 'Desactivar vaciado auto',

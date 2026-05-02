@@ -251,6 +251,8 @@ export const de: Translation = {
       resume_cleaning_desc: 'Reinigung nach dem Laden automatisch fortsetzen',
       dnd: 'Nicht stören',
       dnd_desc: 'Ruhezeiten mit reduzierter Aktivität',
+      dnd_start: 'Startzeit',
+      dnd_end: 'Endzeit',
       dnd_disable_resume: 'Fortsetzen deaktivieren',
       dnd_disable_resume_desc: 'Reinigung während DND nicht fortsetzen',
       dnd_disable_auto_empty: 'Auto-Entleerung deaktivieren',

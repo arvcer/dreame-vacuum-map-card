@@ -249,6 +249,8 @@ export const pl: Translation = {
       resume_cleaning_desc: 'Automatycznie wznów sprzątanie po naładowaniu',
       dnd: 'Nie przeszkadzać (DND)',
       dnd_desc: 'Godziny ciszy z ograniczoną aktywnością',
+      dnd_start: 'Czas rozpoczęcia',
+      dnd_end: 'Czas zakończenia',
       dnd_disable_resume: 'Wyłącz wznawianie',
       dnd_disable_resume_desc: 'Nie wznawiaj sprzątania podczas DND',
       dnd_disable_auto_empty: 'Wyłącz auto opróżnianie',

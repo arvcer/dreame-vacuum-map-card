@@ -11,7 +11,14 @@ export { useTranslation } from './useTranslation';
 export { useTheme } from './useTheme';
 export { useButtonConfig } from './useButtonConfig';
 export { useRoomSettings } from './useRoomSettings';
-export { getEntityState, getSwitchState, getSelectState, getNumberState, getButtonState } from './useEntityState';
+export {
+  getEntityState,
+  getSwitchState,
+  getSelectState,
+  getNumberState,
+  getButtonState,
+  getTimeState,
+} from './useEntityState';
 export { useVacuumCapabilities } from './useVacuumCapabilities';
 export { useVacuumMachineState } from './useVacuumMachineState';
 export type { VacuumEntityIds } from './useVacuumEntityIds';

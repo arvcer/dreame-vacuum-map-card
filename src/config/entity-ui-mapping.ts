@@ -115,9 +115,22 @@ function btn(
 
 // Reserved for future use - sensors and times
 // function sensor(key: keyof typeof DREAME_SENSORS, labelKey: string, descriptionKey?: string, opts?: Partial<EntityDefinition>): EntityDefinition
-// function time(key: keyof typeof DREAME_TIMES, labelKey: string, descriptionKey?: string, opts?: Partial<EntityDefinition>): EntityDefinition
 void DREAME_SENSORS;
-void DREAME_TIMES;
+
+function time(
+  key: keyof typeof DREAME_TIMES,
+  labelKey: string,
+  descriptionKey?: string,
+  opts?: Partial<EntityDefinition>
+): EntityDefinition {
+  return {
+    key: DREAME_TIMES[key].key,
+    platform: 'time',
+    labelKey,
+    descriptionKey,
+    ...opts,
+  };
+}
 
 // Shorthand for capability check
 const CAP = DREAME_CAPABILITIES;
@@ -134,6 +147,14 @@ export const QUICK_SETTINGS_SECTION: SectionDefinition = {
     sw('CHILD_LOCK', 'settings.quick_settings.child_lock', 'settings.quick_settings.child_lock_desc'),
     sw('RESUME_CLEANING', 'settings.quick_settings.resume_cleaning', 'settings.quick_settings.resume_cleaning_desc'),
     sw('DND', 'settings.quick_settings.dnd', 'settings.quick_settings.dnd_desc', { capability: CAP.DND }),
+    time('DND_START', 'settings.quick_settings.dnd_start', undefined, {
+      capability: CAP.DND,
+      parentKey: 'dnd',
+    }),
+    time('DND_END', 'settings.quick_settings.dnd_end', undefined, {
+      capability: CAP.DND,
+      parentKey: 'dnd',
+    }),
     sw(
       'DND_DISABLE_RESUME_CLEANING',
       'settings.quick_settings.dnd_disable_resume',

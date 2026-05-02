@@ -250,6 +250,8 @@ export const ru: Translation = {
       resume_cleaning_desc: 'Автоматически продолжить уборку после зарядки',
       dnd: 'Не беспокоить',
       dnd_desc: 'Тихие часы с ограниченной активностью',
+      dnd_start: 'Время начала',
+      dnd_end: 'Время окончания',
       dnd_disable_resume: 'Отключить продолжение',
       dnd_disable_resume_desc: 'Не продолжать уборку в режиме DND',
       dnd_disable_auto_empty: 'Отключить авто-опустошение',

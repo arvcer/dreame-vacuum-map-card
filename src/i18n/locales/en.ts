@@ -247,6 +247,8 @@ export const en = {
       resume_cleaning_desc: 'Automatically resume cleaning after charging',
       dnd: 'Do Not Disturb',
       dnd_desc: 'Quiet hours with reduced activity',
+      dnd_start: 'Start Time',
+      dnd_end: 'End Time',
       dnd_disable_resume: 'Disable Resume',
       dnd_disable_resume_desc: 'Do not resume cleaning during DND',
       dnd_disable_auto_empty: 'Disable Auto Empty',

@@ -2,6 +2,7 @@ import { EntitySwitch } from './EntitySwitch';
 import { EntitySelect } from './EntitySelect';
 import { EntityNumber } from './EntityNumber';
 import { EntityButton } from './EntityButton';
+import { EntityTime } from './EntityTime';
 import { getSwitchState, useVacuumCapabilities } from '@/hooks';
 import { useEntity, useHass } from '@/contexts';
 import type { EntityDefinition } from '@/config/entity-ui-mapping';
@@ -40,6 +41,8 @@ export function EntityRenderer({ definition, isChild = false }: EntityRendererPr
       return <EntityNumber definition={definition} isChild={isChildItem} />;
     case 'button':
       return <EntityButton definition={definition} isChild={isChildItem} />;
+    case 'time':
+      return <EntityTime definition={definition} isChild={isChildItem} />;
     default:
       return null;
   }

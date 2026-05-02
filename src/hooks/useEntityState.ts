@@ -86,3 +86,19 @@ export function getButtonState(hass: Hass, baseEntityId: string, suffix: string)
   const entityId = `button.${baseEntityId}_${suffix}`;
   return { entityId, ...getEntityState(hass, entityId) };
 }
+
+/**
+ * Get state for a time entity
+ * Returns time in HH:MM format for input[type="time"]
+ */
+export function getTimeState(
+  hass: Hass,
+  baseEntityId: string,
+  suffix: string
+): EntityState & { entityId: string; timeValue: string } {
+  const entityId = `time.${baseEntityId}_${suffix}`;
+  const state = getEntityState(hass, entityId);
+  // HA time entities return HH:MM:SS, but input[type="time"] expects HH:MM
+  const timeValue = state.state ? state.state.substring(0, 5) : '00:00';
+  return { entityId, ...state, timeValue };
+}

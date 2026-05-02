@@ -249,6 +249,8 @@ export const fr_FR: Translation = {
       resume_cleaning_desc: 'Reprendre automatiquement le nettoyage après la charge',
       dnd: 'Ne pas déranger',
       dnd_desc: 'Heures silencieuses avec activité réduite',
+      dnd_start: 'Heure de début',
+      dnd_end: 'Heure de fin',
       dnd_disable_resume: 'Désactiver reprise',
       dnd_disable_resume_desc: 'Ne pas reprendre le nettoyage en mode NPD',
       dnd_disable_auto_empty: 'Désactiver vidage auto',

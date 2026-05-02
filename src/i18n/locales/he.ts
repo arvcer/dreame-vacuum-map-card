@@ -249,6 +249,8 @@ export const he: Translation = {
       resume_cleaning_desc: 'המשך ניקוי אוטומטית לאחר טעינה',
       dnd: 'נא לא להפריע',
       dnd_desc: 'שעות שקטות עם פעילות מופחתת',
+      dnd_start: 'שעת התחלה',
+      dnd_end: 'שעת סיום',
       dnd_disable_resume: 'השבת המשך',
       dnd_disable_resume_desc: 'אל תמשיך ניקוי במצב נא לא להפריע',
       dnd_disable_auto_empty: 'השבת ריקון אוטומטי',

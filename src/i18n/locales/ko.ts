@@ -249,6 +249,8 @@ export const ko: Translation = {
       resume_cleaning_desc: '충전 후 자동으로 청소 재개',
       dnd: '방해 금지',
       dnd_desc: '활동을 줄여 조용한 시간을 가집니다',
+      dnd_start: '시작 시간',
+      dnd_end: '종료 시간',
       dnd_disable_resume: '재개 비활성화',
       dnd_disable_resume_desc: '방해 금지 모드에서 청소 재개 안 함',
       dnd_disable_auto_empty: '자동 비우기 비활성화',

@@ -249,6 +249,8 @@ export const nl: Translation = {
       resume_cleaning_desc: 'Automatisch reiniging hervatten na opladen',
       dnd: 'Niet Storen',
       dnd_desc: 'Stille uren met beperkte activiteit',
+      dnd_start: 'Starttijd',
+      dnd_end: 'Eindtijd',
       dnd_disable_resume: 'Hervatten uitschakelen',
       dnd_disable_resume_desc: 'Niet hervatten tijdens Niet Storen',
       dnd_disable_auto_empty: 'Auto legen uitschakelen',

@@ -250,6 +250,8 @@ export const it: Translation = {
       resume_cleaning_desc: 'Riprendi automaticamente la pulizia dopo la ricarica',
       dnd: 'Non disturbare',
       dnd_desc: 'Orari silenziosi con attività ridotta',
+      dnd_start: 'Ora di inizio',
+      dnd_end: 'Ora di fine',
       dnd_disable_resume: 'Disabilita ripresa',
       dnd_disable_resume_desc: 'Non riprendere la pulizia durante DND',
       dnd_disable_auto_empty: 'Disabilita svuotamento auto',

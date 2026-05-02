@@ -249,6 +249,8 @@ export const zh: Translation = {
       resume_cleaning_desc: '充电后自动恢复清洁',
       dnd: '免打扰',
       dnd_desc: '在设定的安静时段内不主动执行任务',
+      dnd_start: '开始时间',
+      dnd_end: '结束时间',
       dnd_disable_resume: '禁用恢复',
       dnd_disable_resume_desc: '免打扰期间不恢复清洁',
       dnd_disable_auto_empty: '禁用自动集尘',
