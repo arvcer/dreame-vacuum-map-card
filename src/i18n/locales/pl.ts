@@ -373,6 +373,8 @@ export const pl: Translation = {
       rewashing_in_all_modes: 'We wszystkich trybach',
       off_peak_charging: 'Ładowanie poza szczytem',
       off_peak_charging_desc: 'Ładuj poza godzinami szczytu, aby oszczędzać energię',
+      off_peak_charging_start: 'Czas rozpoczęcia',
+      off_peak_charging_end: 'Czas zakończenia',
       station_cleaning: 'Czyszczenie stacji',
       station_cleaning_desc: 'Wyczyść stację bazową',
       clean_now: 'Wyczyść teraz',

@@ -374,6 +374,8 @@ export const ru: Translation = {
       rewashing_in_all_modes: 'Во всех режимах',
       off_peak_charging: 'Зарядка в непиковое время',
       off_peak_charging_desc: 'Заряжать в непиковые часы для экономии энергии',
+      off_peak_charging_start: 'Время начала',
+      off_peak_charging_end: 'Время окончания',
       station_cleaning: 'Очистка станции',
       station_cleaning_desc: 'Очистить базовую станцию',
       clean_now: 'Очистить',

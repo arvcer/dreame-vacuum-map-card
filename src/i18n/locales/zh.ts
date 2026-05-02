@@ -373,6 +373,8 @@ export const zh: Translation = {
       rewashing_in_all_modes: '所有模式',
       off_peak_charging: '低峰充电',
       off_peak_charging_desc: '低峰时段充电节省电费',
+      off_peak_charging_start: '开始时间',
+      off_peak_charging_end: '结束时间',
       station_cleaning: '基站清洁',
       station_cleaning_desc: '清洁基站',
       clean_now: '立即清洁',

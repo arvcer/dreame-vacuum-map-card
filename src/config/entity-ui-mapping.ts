@@ -348,6 +348,14 @@ export const DOCK_SETTINGS_SECTION: SectionDefinition = {
     sw('OFF_PEAK_CHARGING', 'settings.dock.off_peak_charging', 'settings.dock.off_peak_charging_desc', {
       capability: CAP.OFF_PEAK_CHARGING,
     }),
+    time('OFF_PEAK_CHARGING_START', 'settings.dock.off_peak_charging_start', undefined, {
+      capability: CAP.OFF_PEAK_CHARGING,
+      parentKey: 'off_peak_charging',
+    }),
+    time('OFF_PEAK_CHARGING_END', 'settings.dock.off_peak_charging_end', undefined, {
+      capability: CAP.OFF_PEAK_CHARGING,
+      parentKey: 'off_peak_charging',
+    }),
     btn('BASE_STATION_CLEANING', 'settings.dock.station_cleaning', 'settings.dock.station_cleaning_desc', {
       capability: CAP.STATION_CLEANING,
     }),

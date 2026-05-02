@@ -371,6 +371,8 @@ export const en = {
       rewashing_in_all_modes: 'In All Modes',
       off_peak_charging: 'Off-Peak Charging',
       off_peak_charging_desc: 'Charge during off-peak hours to save energy',
+      off_peak_charging_start: 'Start Time',
+      off_peak_charging_end: 'End Time',
       station_cleaning: 'Station Cleaning',
       station_cleaning_desc: 'Clean the base station',
       clean_now: 'Clean Now',

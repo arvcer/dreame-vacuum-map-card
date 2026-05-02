@@ -373,6 +373,8 @@ export const he: Translation = {
       rewashing_in_all_modes: 'בכל המצבים',
       off_peak_charging: 'טעינה בשעות שפל',
       off_peak_charging_desc: 'טען בשעות שפל לחיסכון באנרגיה',
+      off_peak_charging_start: 'שעת התחלה',
+      off_peak_charging_end: 'שעת סיום',
       station_cleaning: 'ניקוי תחנה',
       station_cleaning_desc: 'נקה את תחנת הבסיס',
       clean_now: 'נקה עכשיו',

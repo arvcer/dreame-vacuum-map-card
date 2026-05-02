@@ -373,6 +373,8 @@ export const ko: Translation = {
       rewashing_in_all_modes: '모든 모드에서',
       off_peak_charging: '비피크 시간 충전',
       off_peak_charging_desc: '비피크 시간에 충전하여 에너지 절약',
+      off_peak_charging_start: '시작 시간',
+      off_peak_charging_end: '종료 시간',
       station_cleaning: '스테이션 청소',
       station_cleaning_desc: '베이스 스테이션 청소',
       clean_now: '지금 청소',

@@ -374,6 +374,8 @@ export const es: Translation = {
       rewashing_in_all_modes: 'En todos los modos',
       off_peak_charging: 'Carga en horas valle',
       off_peak_charging_desc: 'Cargar en horas valle para ahorrar energía',
+      off_peak_charging_start: 'Hora de inicio',
+      off_peak_charging_end: 'Hora de fin',
       station_cleaning: 'Limpieza de estación',
       station_cleaning_desc: 'Limpiar la estación base',
       clean_now: 'Limpiar ahora',

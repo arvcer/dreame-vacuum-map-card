@@ -376,6 +376,8 @@ export const fr_FR: Translation = {
       rewashing_in_all_modes: 'Dans tous les modes',
       off_peak_charging: 'Charge heures creuses',
       off_peak_charging_desc: 'Charger pendant les heures creuses pour économiser',
+      off_peak_charging_start: 'Heure de début',
+      off_peak_charging_end: 'Heure de fin',
       self_repair: 'Auto-réparation',
       self_repair_desc: 'Diagnostic et réparation automatiques',
       repair_now: 'Réparer',

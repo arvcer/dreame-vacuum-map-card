@@ -375,6 +375,8 @@ export const de: Translation = {
       rewashing_in_all_modes: 'In allen Modi',
       off_peak_charging: 'Schwachlastladen',
       off_peak_charging_desc: 'Während Schwachlastzeiten laden um Energie zu sparen',
+      off_peak_charging_start: 'Startzeit',
+      off_peak_charging_end: 'Endzeit',
       station_cleaning: 'Station reinigen',
       station_cleaning_desc: 'Die Basisstation reinigen',
       clean_now: 'Jetzt reinigen',

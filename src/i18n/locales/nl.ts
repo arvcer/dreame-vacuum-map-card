@@ -373,6 +373,8 @@ export const nl: Translation = {
       rewashing_in_all_modes: 'In alle modi',
       off_peak_charging: 'Daluren opladen',
       off_peak_charging_desc: 'Opladen tijdens daluren om energie te besparen',
+      off_peak_charging_start: 'Starttijd',
+      off_peak_charging_end: 'Eindtijd',
       station_cleaning: 'Station reiniging',
       station_cleaning_desc: 'Het basisstation reinigen',
       clean_now: 'Nu reinigen',
