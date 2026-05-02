@@ -1,4 +1,5 @@
-import { useMemo, useCallback, memo } from 'react';
+import { useMemo, memo, useRef } from 'react';
+import { useDrag } from '@use-gesture/react';
 import type { Room } from '@/types/homeassistant';
 import { useMachineState } from '@/contexts';
 import { createRoomPath } from '@/utils/roomParser';
@@ -13,12 +14,49 @@ interface RoomSegmentsProps {
   imageHeight: number;
 }
 
-// Extracted style constant to avoid recreation
-const ROOM_PATH_STYLE: React.CSSProperties = {
-  cursor: 'pointer',
-  transition: 'all 0.2s ease',
-  touchAction: 'none',
-};
+interface RoomPathProps {
+  room: Room;
+  path: string;
+  isSelected: boolean;
+  isBusy: boolean;
+  onRoomToggle: (roomId: number, roomName: string) => void;
+}
+
+const DRAG_THRESHOLD = 10;
+
+function RoomPath({ room, path, isSelected, isBusy, onRoomToggle }: RoomPathProps) {
+  const pathRef = useRef<SVGPathElement>(null);
+
+  useDrag(
+    (state) => {
+      if (state.tap) {
+        logger.debug('RoomSegments', 'Tap on room:', room.id, room.name);
+        onRoomToggle(room.id, room.name);
+      }
+    },
+    {
+      target: pathRef,
+      filterTaps: true,
+      tapsThreshold: DRAG_THRESHOLD,
+    }
+  );
+
+  return (
+    <path
+      ref={pathRef}
+      d={path}
+      className={`vacuum-map__room-segment ${isSelected ? 'vacuum-map__room-segment--selected' : ''}`}
+      fill={isSelected ? 'var(--accent-bg, rgba(212, 175, 55, 0.3))' : 'transparent'}
+      stroke={!isBusy && isSelected ? 'var(--accent-color, #D4AF37)' : 'rgba(255, 255, 255, 0.2)'}
+      strokeWidth="2"
+      style={{ cursor: 'pointer', transition: 'all 0.2s ease', touchAction: 'none' }}
+      data-room-id={room.id}
+      data-room-name={room.name}
+    >
+      <title>{room.name}</title>
+    </path>
+  );
+}
 
 function RoomSegmentsInner({
   rooms,
@@ -29,7 +67,7 @@ function RoomSegmentsInner({
   imageHeight,
 }: RoomSegmentsProps) {
   const { phase } = useMachineState();
-  const isInCleaningSession = phase === 'cleaning' || phase === 'paused';
+  const isBusy = phase !== 'idle';
   logger.debug('RoomSegments', 'Render, selectedRooms:', Array.from(selectedRooms.keys()));
 
   const roomPaths = useMemo(() => {
@@ -40,22 +78,6 @@ function RoomSegmentsInner({
         path: createRoomPath(room, calibrationPoints, imageWidth, imageHeight),
       }));
   }, [rooms, calibrationPoints, imageWidth, imageHeight]);
-
-  const handlePointerDown = useCallback((e: React.PointerEvent) => {
-    e.stopPropagation();
-  }, []);
-
-  const handlePointerUp = useCallback(
-    (e: React.PointerEvent<SVGPathElement>) => {
-      e.stopPropagation();
-      e.preventDefault();
-      const roomId = Number(e.currentTarget.dataset.roomId);
-      const roomName = e.currentTarget.dataset.roomName ?? '';
-      logger.debug('RoomSegments', 'Click on room:', roomId, roomName);
-      onRoomToggle(roomId, roomName);
-    },
-    [onRoomToggle]
-  );
 
   if (!imageWidth || !imageHeight) {
     return null;
@@ -76,26 +98,18 @@ function RoomSegmentsInner({
         }
 
         return (
-          <path
+          <RoomPath
             key={room.id}
-            d={path}
-            className={`vacuum-map__room-segment ${isSelected ? 'vacuum-map__room-segment--selected' : ''}`}
-            fill={isSelected ? 'var(--accent-bg, rgba(212, 175, 55, 0.3))' : 'transparent'}
-            stroke={!isInCleaningSession && isSelected ? 'var(--accent-color, #D4AF37)' : 'rgba(255, 255, 255, 0.2)'}
-            strokeWidth="2"
-            style={ROOM_PATH_STYLE}
-            onPointerDown={handlePointerDown}
-            onPointerUp={handlePointerUp}
-            data-room-id={room.id}
-            data-room-name={room.name}
-          >
-            <title>{room.name}</title>
-          </path>
+            room={room}
+            path={path}
+            isSelected={isSelected}
+            isBusy={isBusy}
+            onRoomToggle={onRoomToggle}
+          />
         );
       })}
     </svg>
   );
 }
 
-// Wrap with memo for better performance
 export const RoomSegments = memo(RoomSegmentsInner);

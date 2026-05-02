@@ -26,8 +26,8 @@ export function MapSelector() {
   const maps = useMemo(() => (attributes.maps as MapInfo[] | undefined) ?? [], [attributes.maps]);
   const selectedMapId = attributes.selected_map_id ?? attributes.selected_map;
 
-  // Check if vacuum is in a cleaning session (can't change maps while cleaning)
-  const isInCleaningSession = phase === 'cleaning' || phase === 'paused';
+  // Check if vacuum is busy (can't change maps unless idle)
+  const isBusy = phase !== 'idle';
 
   // Derive the select entity ID for map selection
   const entityName = config.entity?.split('.')[1] ?? '';
@@ -36,9 +36,9 @@ export function MapSelector() {
   // Check select entity availability
   const selectState = getSelectState(hass, entityName, 'selected_map');
 
-  // Combine cleaning session check with entity availability
+  // Combine busy check with entity availability
   // Only disable if entity exists but is unavailable, not if it doesn't exist
-  const isDisabled = isInCleaningSession || selectState.unavailable;
+  const isDisabled = isBusy || selectState.unavailable;
 
   // Get the currently selected map
   const selectedMap = useMemo(() => maps.find((m) => m.id === selectedMapId), [maps, selectedMapId]);
