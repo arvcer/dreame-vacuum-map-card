@@ -73,6 +73,11 @@ function RoomSegmentsInner({
   const roomPaths = useMemo(() => {
     return rooms
       .filter((room) => room.visibility !== 'Hidden')
+      .sort((a, b) => {
+        const areaA = Math.abs(((a.x1 ?? 0) - (a.x0 ?? 0)) * ((a.y1 ?? 0) - (a.y0 ?? 0)));
+        const areaB = Math.abs(((b.x1 ?? 0) - (b.x0 ?? 0)) * ((b.y1 ?? 0) - (b.y0 ?? 0)));
+        return areaB - areaA;
+      })
       .map((room) => ({
         room,
         path: createRoomPath(room, calibrationPoints, imageWidth, imageHeight),
