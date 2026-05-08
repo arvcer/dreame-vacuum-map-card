@@ -216,7 +216,7 @@ The card supports multiple languages. Currently available:
 - **Dutch (nl)** - Nederlands
 - **Spanish (es)** - Español
 - **Chinese (zh)** - 中文
-- **French (fr)** - Français
+- **French (fr_FR)** - Français
 - **Korean (ko)** - 한국인
 - **Hebrew (he)** - עברית (RTL supported)
 
@@ -241,7 +241,7 @@ All user-facing text is translated, including:
 
 To add support for additional languages:
 
-1. Create a new translation file in `src/i18n/locales/` (e.g., `fr.ts` for French)
+1. Create a new translation file in `src/i18n/locales/` (e.g., `fr_FR.ts` for French)
 2. Import the `Translation` type and provide translations for all keys
 3. Add the new locale to `src/i18n/locales/index.ts`
 4. Update the `HassConfig` type in `src/types/homeassistant.ts`
@@ -251,7 +251,7 @@ Example structure:
 ```typescript
 import type { Translation } from './en';
 
-export const fr: Translation = {
+export const fr_FR: Translation = {
   room_selector: {
     title: 'Sélectionner les pièces',
     // ... more translations
