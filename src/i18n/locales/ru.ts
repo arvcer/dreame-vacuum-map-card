@@ -125,6 +125,7 @@ export const ru: Translation = {
     max_plus_description:
       'Мощность всасывания будет увеличена до максимального уровня, что соответствует режиму одноразового использования.',
     wetness_title: 'Влажность',
+    mop_pad_humidity_title: 'Влажность швабры',
     slightly_dry: 'Слегка сухая',
     moist: 'Влажная',
     wet: 'Мокрая',

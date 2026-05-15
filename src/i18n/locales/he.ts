@@ -124,6 +124,7 @@ export const he: Translation = {
     suction_power_title: 'עוצמת שאיבה',
     max_plus_description: 'עוצמת השאיבה תוגבר לרמה הגבוהה ביותר, זהו מצב לשימוש חד-פעמי.',
     wetness_title: 'רמת רטיבות',
+    mop_pad_humidity_title: 'לחות משטח הסמרטוט',
     slightly_dry: 'מעט יבש',
     moist: 'לח',
     wet: 'רטוב',

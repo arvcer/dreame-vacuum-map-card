@@ -126,6 +126,7 @@ export const de: Translation = {
     suction_power_title: 'Saugleistung',
     max_plus_description: 'Die Saugkraft wird auf die höchste Stufe erhöht. Dies ist ein Einmal-Modus.',
     wetness_title: 'Feuchtigkeit',
+    mop_pad_humidity_title: 'Wischmopp-Feuchtigkeit',
     slightly_dry: 'Leicht trocken',
     moist: 'Feucht',
     wet: 'Nass',

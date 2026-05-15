@@ -124,6 +124,7 @@ export const ko: Translation = {
     suction_power_title: '흡입력',
     max_plus_description: '흡입력을 최고 수준으로 올립니다. 일회성 모드입니다.',
     wetness_title: '물걸레 습도',
+    mop_pad_humidity_title: '물걸레 패드 습도',
     slightly_dry: '약간 건조',
     moist: '촉촉하게',
     wet: '젖음',

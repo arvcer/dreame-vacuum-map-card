@@ -10,6 +10,7 @@ import {
   CLEANING_ROUTE,
   SELF_CLEAN_FREQUENCY,
   WATER_VOLUME,
+  MOP_PAD_HUMIDITY,
   VACUUM_ICON_SVG,
   MOP_ICON_SVG,
   VACUUM_MOP_ICON_SVG,
@@ -36,6 +37,7 @@ import type {
   CleaningRoute,
   SelfCleanFrequency,
   WaterVolume,
+  MopPadHumidity,
 } from '@/types/vacuum';
 
 export function getCleaningModeIcon(mode: VacuumCleaningMode): ReactElement | string {
@@ -122,6 +124,27 @@ export function getWaterVolumeFriendlyName(level: WaterVolume, t?: TranslateFunc
         return t('custom_mode.water_medium');
       case WATER_VOLUME.HIGH:
         return t('custom_mode.water_high');
+      default:
+        return level;
+    }
+  }
+  return level;
+}
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export function getMopPadHumidityIcon(_: MopPadHumidity): ReactElement {
+  return WATER_VOLUME_ICON_SVG;
+}
+
+export function getMopPadHumidityFriendlyName(level: MopPadHumidity, t?: TranslateFunction): string {
+  if (t) {
+    switch (level) {
+      case MOP_PAD_HUMIDITY.SLIGHTLY_DRY:
+        return t('custom_mode.slightly_dry');
+      case MOP_PAD_HUMIDITY.MOIST:
+        return t('custom_mode.moist');
+      case MOP_PAD_HUMIDITY.WET:
+        return t('custom_mode.wet');
       default:
         return level;
     }

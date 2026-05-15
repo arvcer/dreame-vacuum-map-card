@@ -125,6 +125,7 @@ export const es: Translation = {
     suction_power_title: 'Potencia de succión',
     max_plus_description: 'La potencia de succión se incrementará al máximo nivel, es un modo de un solo uso.',
     wetness_title: 'Humedad',
+    mop_pad_humidity_title: 'Humedad de la mopa',
     slightly_dry: 'Ligeramente seco',
     moist: 'Húmedo',
     wet: 'Mojado',

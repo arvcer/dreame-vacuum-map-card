@@ -124,6 +124,7 @@ export const nl: Translation = {
     suction_power_title: 'Zuigkracht',
     max_plus_description: 'De zuigkracht wordt verhoogd naar het hoogste niveau (eenmalige modus).',
     wetness_title: 'Vochtigheid',
+    mop_pad_humidity_title: 'Dweildoek Vochtigheid',
     slightly_dry: 'Licht droog',
     moist: 'Vochtig',
     wet: 'Nat',

@@ -8,6 +8,7 @@ import {
   SuctionPowerSelector,
   WetnessSlider,
   WaterVolumeSelector,
+  MopPadHumiditySelector,
   MopWashingFrequency,
   RouteSelector,
 } from './components';
@@ -19,6 +20,7 @@ interface CustomModeProps {
   suctionLevelList: string[];
   wetnessLevel: number;
   mopPadHumidity: string;
+  mopPadHumidityList: string[];
   waterVolume: string;
   waterVolumeList: string[];
   cleaningRoute: string;
@@ -44,6 +46,7 @@ export function CustomMode({
   suctionLevelList,
   wetnessLevel,
   mopPadHumidity,
+  mopPadHumidityList,
   waterVolume,
   waterVolumeList,
   cleaningRoute,
@@ -75,6 +78,7 @@ export function CustomMode({
   const hasCleaningRoute = capabilities.has(CAPABILITY.CLEANING_ROUTE);
   const hasSelfWashBase = capabilities.has(CAPABILITY.SELF_WASH_BASE);
   const hasWaterVolume = !hasWetnessLevel && !hasSelfWashBase && waterVolumeList.length > 0;
+  const hasMopPadHumidity = hasSelfWashBase && !hasWetnessLevel && mopPadHumidityList.length > 0;
 
   const cleaningModeState = getEntityState(hass, entityIds.cleaningMode);
   const isInCleaningSession = phase === 'cleaning' || phase === 'paused';
@@ -162,6 +166,20 @@ export function CustomMode({
                 slightlyDryLabel={t('custom_mode.slightly_dry')}
                 moistLabel={t('custom_mode.moist')}
                 wetLabel={t('custom_mode.wet')}
+                disabled={!controls.canChangeWetness}
+              />
+            </section>
+          )}
+
+          {hasMopPadHumidity && cleaningMode !== CLEANING_MODE.SWEEPING && (
+            <section className="cleaning-mode-modal__section">
+              <h3 className="cleaning-mode-modal__section-title">{t('custom_mode.mop_pad_humidity_title')}</h3>
+              <MopPadHumiditySelector
+                mopPadHumidity={mopPadHumidity}
+                mopPadHumidityList={mopPadHumidityList}
+                onSelect={setSelectOption}
+                entityId={entityIds.mopPadHumidity}
+                t={t}
                 disabled={!controls.canChangeWetness}
               />
             </section>

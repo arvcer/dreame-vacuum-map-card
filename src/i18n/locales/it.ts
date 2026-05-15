@@ -125,6 +125,7 @@ export const it: Translation = {
     max_plus_description:
       'La potenza di aspirazione sarà aumentata al livello massimo. Modalità utilizzabile una sola volta.',
     wetness_title: 'Livello di umidità',
+    mop_pad_humidity_title: 'Umidità del panno',
     slightly_dry: 'Leggermente asciutto',
     moist: 'Umido',
     wet: 'Bagnato',

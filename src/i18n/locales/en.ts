@@ -122,6 +122,7 @@ export const en = {
     suction_power_title: 'Suction Power',
     max_plus_description: 'The suction power will be increased to the highest level, which is a single-use mode.',
     wetness_title: 'Wetness',
+    mop_pad_humidity_title: 'Mop Pad Humidity',
     slightly_dry: 'Slightly dry',
     moist: 'Moist',
     wet: 'Wet',

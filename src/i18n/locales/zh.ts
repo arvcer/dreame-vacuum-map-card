@@ -124,6 +124,7 @@ export const zh: Translation = {
     suction_power_title: '吸力设置',
     max_plus_description: '吸力将提升至最高档位（该模式仅单次生效）。',
     wetness_title: '拖布水量',
+    mop_pad_humidity_title: '拖布湿度',
     slightly_dry: '偏干',
     moist: '标准',
     wet: '偏湿',

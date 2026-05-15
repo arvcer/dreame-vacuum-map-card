@@ -124,6 +124,7 @@ export const fr_FR: Translation = {
     suction_power_title: "Puissance d'aspiration",
     max_plus_description: 'La puissance sera augmentée au niveau maximum (usage unique).',
     wetness_title: "Débit d'eau",
+    mop_pad_humidity_title: 'Humidité de la serpillère',
     slightly_dry: 'Sec',
     moist: 'Standard',
     wet: 'Humide',

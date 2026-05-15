@@ -98,6 +98,10 @@ export function CleaningModeModal({ opened, onClose }: CleaningModeModalProps) {
   const baseWaterVolumeList = getStringArrayAttr('water_volume_list', []);
   const waterVolumeList = baseWaterVolumeList.length > 0 ? baseWaterVolumeList : ['Low', 'Medium', 'High'];
 
+  const baseMopPadHumidityList = getStringArrayAttr('mop_pad_humidity_list', []);
+  const mopPadHumidityList =
+    baseMopPadHumidityList.length > 0 ? baseMopPadHumidityList : ['Slightly dry', 'Moist', 'Wet'];
+
   const baseCleaningRouteList = getStringArrayAttr('cleaning_route_list', []);
   const cleaningRouteList =
     baseCleaningRouteList.length > 0 ? baseCleaningRouteList : ['Quick', 'Standard', 'Intensive', 'Deep'];
@@ -165,6 +169,7 @@ export function CleaningModeModal({ opened, onClose }: CleaningModeModalProps) {
                 suctionLevelList={suctionLevelList}
                 wetnessLevel={wetnessLevel}
                 mopPadHumidity={mopPadHumidity}
+                mopPadHumidityList={mopPadHumidityList}
                 waterVolume={waterVolume}
                 waterVolumeList={waterVolumeList}
                 cleaningRoute={cleaningRoute}

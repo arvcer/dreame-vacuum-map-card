@@ -124,6 +124,7 @@ export const pl: Translation = {
     suction_power_title: 'Siła ssania',
     max_plus_description: 'Siła ssania zostanie zwiększona do najwyższego poziomu (tryb jednorazowy).',
     wetness_title: 'Wilgotność mopa',
+    mop_pad_humidity_title: 'Wilgotność nakładki mopa',
     slightly_dry: 'Lekko suchy',
     moist: 'Wilgotny',
     wet: 'Mokry',
