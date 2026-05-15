@@ -10,7 +10,7 @@ import { SettingsPanel } from '@/components/SettingsPanel';
 import { RoomSelectionDisplay } from '@/components/RoomSelectionDisplay';
 import { Toast } from '@/components/common';
 import { useCardUIState, useVacuumServices, useToast, useTranslation, useTheme } from '@/hooks';
-import { extractEntityData, getEffectiveCleaningMode, getAttr, getActiveSegments } from '@/utils';
+import { extractEntityData, getEffectiveCleaningMode, getAttr, getActiveSegments, resolveMapEntityId } from '@/utils';
 import { isRtlLanguage } from '@/i18n';
 import { VacuumCardProvider } from '@/contexts';
 import { CAPABILITY } from '@/constants';
@@ -68,7 +68,7 @@ export function DreameVacuumCard({ hass, config }: DreameVacuumCardProps) {
   } = useCardUIState({ defaultMode: config.default_mode });
 
   // Get map entity ID
-  const mapEntityId = config.map_entity || `camera.${config.entity.split('.')[1]}_map`;
+  const mapEntityId = resolveMapEntityId(hass, config.entity, config.map_entity);
 
   // Check if vacuum is actively cleaning (state === 'cleaning' or started attribute)
   const isCleaning = entity ? entity.state === 'cleaning' || getAttr(entity.attributes.started, false) : false;
