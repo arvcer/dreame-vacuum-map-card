@@ -87,7 +87,9 @@ export function CleaningModeModal({ opened, onClose }: CleaningModeModalProps) {
       : ['Sweeping', 'Mopping', 'Sweeping and mopping', 'Mopping after sweeping'];
   const cleaningModeList = [...effectiveCleaningModeList, CLEANING_MODE.CUSTOMIZE];
 
-  const cleangeniusModeList = getStringArrayAttr('cleangenius_mode_list', ['Vacuum and mop', 'Mop after vacuum']);
+  const baseCleangeniusModeList = getStringArrayAttr('cleangenius_mode_list', []);
+  const cleangeniusModeList =
+    baseCleangeniusModeList.length > 0 ? baseCleangeniusModeList : ['Vacuum and mop', 'Mop after vacuum'];
 
   const baseSuctionLevelList = getStringArrayAttr('suction_level_list', []);
   const suctionLevelList =
