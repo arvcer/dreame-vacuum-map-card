@@ -80,43 +80,22 @@ function deriveTask(sensorState: string | undefined): CleaningTask {
   return DEFAULT_TASK;
 }
 
-/**
- * Derive control enablement from phase, task, and context
- */
-function deriveControls(
-  phase: VacuumPhase,
-  task: CleaningTask,
-  cleaningMode: string,
-  isCustomizedCleaning: boolean
-): VacuumControls {
+function deriveControls(phase: VacuumPhase, cleaningMode: string, isCustomizedCleaning: boolean): VacuumControls {
   const isActivelyCleaning = phase === 'cleaning';
   const isPaused = phase === 'paused';
   const isInCleaningSession = isActivelyCleaning || isPaused;
 
-  const isMoppingTask = task === 'mopping';
   const isMoppingOnlyMode = cleaningMode === CLEANING_MODE.MOPPING;
+  const isSweepingMode = cleaningMode === CLEANING_MODE.SWEEPING;
+  const isMoppingAfterSweeping = cleaningMode === CLEANING_MODE.MOPPING_AFTER_SWEEPING;
 
   return {
-    // Cleaning mode: only when idle
-    canChangeCleaningMode: phase === 'idle',
-
-    // Suction: disabled when mopping, paused, or customized cleaning active
-    canChangeSuctionPower:
-      !isMoppingOnlyMode && !isMoppingTask && !isPaused && !(isActivelyCleaning && isCustomizedCleaning),
-
-    // Wetness: only when idle
-    canChangeWetness: !isInCleaningSession,
-
-    // Route: only when idle
+    canChangeCleaningMode: phase === 'idle' || (isInCleaningSession && !isMoppingAfterSweeping),
+    canChangeSuctionPower: !isMoppingOnlyMode && !isCustomizedCleaning,
+    canChangeWetness: !isSweepingMode && !isCustomizedCleaning,
     canChangeRoute: !isInCleaningSession,
-
-    // Mop frequency buttons: disabled during cleaning (sliders remain enabled)
     canChangeMopFrequency: !isInCleaningSession,
-
-    // Max power toggle: disabled during cleaning
-    canToggleMaxPower: !isInCleaningSession,
-
-    // Actions
+    canToggleMaxPower: (isSweepingMode || isMoppingAfterSweeping) && !isCustomizedCleaning,
     canStartCleaning: !isInCleaningSession && phase !== 'returning' && phase !== 'error',
     canPause: isActivelyCleaning,
     canResume: isPaused,
@@ -152,7 +131,7 @@ export function useVacuumMachineState(hass: Hass, entity: HassEntity): VacuumMac
     const isCustomizedCleaning = entity.attributes.customized_cleaning === true;
 
     // Derive control enablement
-    const controls = deriveControls(phase, task, cleaningMode, isCustomizedCleaning);
+    const controls = deriveControls(phase, cleaningMode, isCustomizedCleaning);
 
     return {
       phase,
